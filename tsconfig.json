@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
+    "outDir": "dist",
     "target": "es5",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
-    "allowJs": true,
+    "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -18,9 +19,19 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react",
+     "declaration": true,
+     "declarationDir": "dist/types"
+
   },
-  "include": [
-    "src"
-  ]
+
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "example", "rollup.config.js"]
+
+  
 }
+
+
+
+  
+

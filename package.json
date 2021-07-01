@@ -1,24 +1,50 @@
 {
-  "name": "payment",
+  "name": "@chzdo_apps/react-paystack-flutter-payment",
   "version": "0.1.0",
   "private": true,
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "module": "dist/index.es.js",
   "dependencies": {
+    "@babel/cli": "^7.14.5",
+    "@babel/core": "^7.14.6",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.14.7",
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@storybook/react": "^6.3.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
+    "@types/node": "^15.12.4",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "babel-runtime": "^6.26.0",
+    "express": "^4.17.1",
+    "prop-types": "^15.7.2",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react-dom": "^17.0.2",  
     "react-scripts": "4.0.3",
+    "rollup": "^2.52.4",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.0",
+    "rollup-plugin-sass": "^1.2.2",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "sass-loader": "^12.1.0",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "rollup -c",
+    "start": "rollup -c -w",
+    "storybook": "start-storybook -p 6006",
+    "storybook:export": "build-storybook",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -39,5 +65,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "typings": "dist/index.d.ts",
+  "typescript": {
+    "definition": "dist/index.d.ts"
+  },
+  
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "resolutions": {
+    "**/react": "16.7.0-alpha.2",
+    "**/react-dom": "16.7.0-alpha.2"
   }
 }
