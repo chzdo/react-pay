@@ -1,11 +1,27 @@
 {
   "name": "@chzdo_apps/react-paystack-flutter-payment",
-  "version": "0.1.0",
-  "private": true,
-  "main": "dist/index.js",
+  "homepage": "https://github.com/chzdo/react-pay",
+  "version": "0.1.4",
+  
+   "main": "dist/index.js",
   "files": [
     "dist"
   ],
+  "keywords": [
+    "payment",
+    "react",
+    "paystack",
+    "flutterwave"
+  ],
+  "licenses" : [
+    {
+      "type": "MIT",
+      "url": "https://www.opensource.org/licenses/mit-license.php"
+    }],
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/chzdo/react-pay"
+    },
   "module": "dist/index.es.js",
   "dependencies": {
     "@babel/cli": "^7.14.5",
@@ -14,7 +30,6 @@
     "@babel/preset-env": "^7.14.7",
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
-    "@storybook/react": "^6.3.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -26,7 +41,6 @@
     "babel-loader": "^8.2.2",
     "babel-preset-react-app": "^10.0.0",
     "babel-runtime": "^6.26.0",
-    "express": "^4.17.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",  
@@ -74,9 +88,6 @@
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
-  },
-  "resolutions": {
-    "**/react": "16.7.0-alpha.2",
-    "**/react-dom": "16.7.0-alpha.2"
   }
+
 }

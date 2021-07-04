@@ -1,46 +1,117 @@
-# Getting Started with Create React App
+# Getting Started with React-Paystack-Flutter-Payment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a Component for Paystack and Flutter Wave Payments.
 
-## Available Scripts
+## About
 
-In the project directory, you can run:
+Yes, there are options for react component for several gateways. However, this component combines 
+Paystack and Flutter Wave with an addition Feature.
 
-### `yarn start`
+You can pass your verification uri to the component and it verifies your payment and returns response from your API.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installation
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+NPM
+``` 
+npm install @chzdo_apps/react-paystack-flutter-payment
 
-### `yarn test`
+```
+or Yarn 
+``` 
+yarn add @chzdo_apps/react-paystack-flutter-payment
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Yes, there are options for react component for several gateways. However, this component combines 
+Paystack and Flutter Wave with an addition Feature.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You can pass your verification uri to the component and it verifies your payment and returns response from your API.
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Example
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+``` javascript
+ import { PayStack , FlutterWave } from "@chzdo_apps/react-paystack-flutter-payment"
 
-## Learn More
+...
+          <PayStack
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+            config={{
+            email: state.email,
+            amount: state.amount,
+               }}
+          verify={{
+            url: "<your API URL>",
+            options: {
+            method: "<Your Prefered Request Method>"             
+            },
+            Component: ()=><i  class="fas fa-spin"></i>
+          }}
+          currency="NGN"
+          publicKey="Your Paystack public Key"
+          onSuccess={(r) => console.log(r)}
+          onClose={() => console.log('closed')}
+          text={'Pay'}
+          buttonStyle={{
+            background: 'blue',
+            borderWidth: 0,
+            boxShadow: "0px 1px 2px 5px black",
+       
+          }}
+          channels={["bank", "card"]}
+        />
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+        <FlutterWave
+
+          customer={{
+            email: state.email,
+            phonenumber: state.phone,
+            name: state.name  }}
+            amount={state.amount}
+            currency="NGN"
+           verify={{
+            url: "<your API URL>",
+            options: {
+            method: "<Your Prefered Request Method>",
+            },
+            Component: ()=><i  class="fas fa-spin"></i>
+          }}
+          publicKey="Your Flutter wave Key"
+          onSuccess={(r) => console.log(r)}
+          onClose={(e) => console.log('closed',e)}
+          text={'Flutter Product'}
+          buttonStyle={{
+            background: 'red',
+            borderWidth: 0,
+            boxShadow: "0px 1px 2px 5px black",
+            cursor: 'grab'
+          }}
+        />
+```
+
+## Props
+
+#### General
+| Prop          | Description   | Expected Value  |
+| ------------- |:-------------:| ---------------:|
+| publicKey     | Your payment Public Key | string            |
+| onSuccess     | The callback function after payment     |   Function          |
+| onClose       | The callback function when user closes the dialog     |    Function           |
+| buttonStyle   | Styles for the payment button | CSSProperties          |
+| text          | Caption on the button      |  default : pay         |
+| verify        | This is used if you want the component to verify the transaction. The Response Object will be return in the onSuccess ***Note: Do not pass this prop if you do not want the component to handle the verification***     |    url : uri, options: All Request Params,Component: A react Functional Component           |
+| reference        | Unique reference for each transaction     |   default : The component generates ref if prop is not passed           |
+
+
+#### Paystack
+| Prop          | Description   | Expected Value  |
+| ------------- |:-------------:| ---------------:|
+| config        | This contains information about the payer | check paystack documentation for possible optios           |
+
+You can check [paystack documentation](https://paystack.com/docs/)  for props you can pass to the component.
+You can check [Flutter Wave documentation](https://developer.flutterwave.com/docs/)  for props you can pass to the component.
+
